@@ -11,4 +11,16 @@
     <string name="action_example">Example action</string>
 
     <string name="action_settings">Settings</string>
+
+<!-- Titoli dei fragment relativi alla squadra in gestione -->
+    <string name="fragment_team_view_title">View</string>
+    <string name="fragment_team_players_title">Players</string>
+    <string name="fragment_team_championships_title">Championships</string>
+    <string name="fragment_team_tournaments_title">Tournaments</string>
+    <string name="fragment_team_statistics_title">Statistics</string>
+
+
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

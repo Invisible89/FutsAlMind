@@ -1,10 +1,13 @@
 package futsalmind.futsalmind;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+//import android.support.v4.app.Fragment;
+//import android.support.v4.app.FragmentManager;
+import android.app.FragmentManager;
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,9 +21,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks,
+                   TeamViewFragment.OnFragmentInteractionListener,
+                   TeamPlayersFragment.OnFragmentInteractionListener,
+                   TeamChampionshipsFragment.OnFragmentInteractionListener,
+                   TeamTournamentsFragment.OnFragmentInteractionListener,
+                   TeamStatisticsFragment.OnFragmentInteractionListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -31,6 +39,11 @@ public class MainActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +63,41 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        fragmentManager.beginTransaction()
+//                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+//                .commit();
+
+        Fragment fragment;
+        FragmentManager fragmentManager = getFragmentManager();
+        switch(position) {
+            case 0:
+                mTitle = getString(R.string.fragment_team_view_title);
+                fragment = new TeamViewFragment();
+                break;
+            case 1:
+                mTitle = getString(R.string.fragment_team_players_title);
+                fragment = new TeamPlayersFragment();
+                break;
+            case 2:
+                mTitle = getString(R.string.fragment_team_championships_title);
+                fragment = new TeamChampionshipsFragment();
+                break;
+            case 3:
+                mTitle = getString(R.string.fragment_team_tournaments_title);
+                fragment = new TeamTournamentsFragment();
+                break;
+            case 4:
+                mTitle = getString(R.string.fragment_team_statistics_title);
+                fragment = new TeamStatisticsFragment();
+                break;
+            default:
+                mTitle = getString(R.string.fragment_team_view_title);
+                fragment = new TeamViewFragment();
+                break;
+        }
         fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                .replace(R.id.container, fragment)
                 .commit();
     }
 
