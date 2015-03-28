@@ -46,6 +46,11 @@ public class MainActivity extends ActionBarActivity
     }
 
     @Override
+    public void onFragmentInteraction(String uri) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

@@ -1,5 +1,6 @@
 package futsalmind.futsalmind;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -250,7 +251,11 @@ public class NavigationDrawerFragment extends Fragment {
         }
 
         if (item.getItemId() == R.id.action_example) {
-            Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
+
+            // Richiamo altra activity (se fossi in un activity e non in un fragment bastava 'this' e non 'this.getActivity'
+            startActivity(new Intent(this.getActivity(),activity_team_player_detail.class));
+
+//            Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
             return true;
         }
 
