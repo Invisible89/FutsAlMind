@@ -6,12 +6,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class activity_team_player_detail extends ActionBarActivity {
+public class TeamPlayerDetailActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_activity_team_player_detail);
+        setContentView(R.layout.activity_team_player_detail);
     }
 
 

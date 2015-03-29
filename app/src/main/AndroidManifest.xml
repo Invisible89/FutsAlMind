@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity_team_player_detail"
+            android:name=".TeamPlayerDetailActivity"
             android:label="@string/title_activity_activity_team_player_detail" >
         </activity>
     </application>
